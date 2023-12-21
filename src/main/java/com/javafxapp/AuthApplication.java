@@ -88,7 +88,7 @@ public class AuthApplication extends Application
 		});
 		
 		
-		return new Scene(root, 250, 250);
+		return new Scene(root, 500, 500);
 	}
 	
 	public Scene setRegistrationScene(Stage primaryStage) throws IOException
@@ -115,14 +115,14 @@ public class AuthApplication extends Application
 				}
 			}
 		});
-		return new Scene(root, 250, 250);
+		return new Scene(root, 500, 500);
 	}
 	
 	public Scene setSuccessfulAuthScene() throws IOException
 	{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/javafxapp/SuccessfulAuth.fxml"));
 		Parent root = loader.load();
-		return new Scene(root, 250, 250);
+		return new Scene(root, 500, 500);
 	}
 	public Scene setUnsuccessfulAuthScene() throws IOException
 	{
