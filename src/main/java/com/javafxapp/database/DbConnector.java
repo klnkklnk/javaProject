@@ -21,7 +21,7 @@ public class DbConnector
 	private static void defineProperties() throws Exception
 	{
 		Properties properties = new Properties();
-		try(InputStream in = Files.newInputStream(Paths.get("src/main/resources/database/database.properties")))
+		try(InputStream in = Files.newInputStream(Paths.get("src/main/resources/com/javafxapp/database/database.properties")))
 		{
 			properties.load(in);
 		}
@@ -33,7 +33,7 @@ public class DbConnector
 		useSSL = properties.getProperty("useSSL");
 		urlString = url + "?serverTimezone=" + timeZone + "&useSSL=" + useSSL;
 	}
-	public static Connection getConnection() throws SQLException
+	public static Connection getConnection()
 	{
 		try
 		{

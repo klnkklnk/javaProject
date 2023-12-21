@@ -1,5 +1,6 @@
 package com.javafxapp;
-import com.javafxapp.database.DbConnector;
+import com.javafxapp.database.DbService;
+import com.javafxapp.models.User;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,10 +12,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class AuthApplication extends Application
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws SQLException
 	{
 		Application.launch(args);
 	}
