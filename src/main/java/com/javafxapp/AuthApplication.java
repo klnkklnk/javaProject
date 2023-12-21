@@ -12,12 +12,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 public class AuthApplication extends Application
 {
-	public static void main(String[] args) throws SQLException
+	public static void main(String[] args) throws Exception
 	{
 		Application.launch(args);
 	}

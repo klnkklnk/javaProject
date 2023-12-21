@@ -8,7 +8,7 @@ public class User
 	public User(String login, String password)
 	{
 		this.login = login.trim();
-		this.password = HashService.convertTextToHash(password.trim());
+		this.password = password.trim();
 	}
 	
 	public String getLogin()
