@@ -125,10 +125,17 @@ public class AuthApplication extends Application
 					}
 					else
 					{
-						dbService.addUserToDb(new User(login, password));
-						primaryStage.close();
-						primaryStage.setScene(setAuthScene(primaryStage));
-						primaryStage.show();
+						try
+						{
+							dbService.addUserToDb(new User(login, password));
+							primaryStage.close();
+							primaryStage.setScene(setAuthScene(primaryStage));
+							primaryStage.show();
+						}
+						catch (SQLException sqlException)
+						{
+							alert.errorMessage("Пользователь с таким логином уже существует");
+						}
 					}
 				}
 				catch (Exception exception)
