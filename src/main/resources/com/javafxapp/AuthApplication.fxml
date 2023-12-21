@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="475.0" prefWidth="535.0" stylesheets="/com/javafxapp/style/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.javafxapp.AuthController">
+<VBox alignment="TOP_CENTER" prefHeight="475.0" prefWidth="535.0" stylesheets="/com/javafxapp/style/style.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.javafxapp.AuthController">
    <children>
       <AnchorPane prefHeight="48.0" prefWidth="500.0" style="-fx-background-color: #ff00a6;">
          <children>

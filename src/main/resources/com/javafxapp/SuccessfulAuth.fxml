@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" stylesheets="/com/javafxapp/style/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" stylesheets="/com/javafxapp/style/style.css" xmlns="http://javafx.com/javafx">
    <Polyline fill="#ff00a6" points="64.0000228881836, 400.0000305175781, 150.0, 178.39999389648438, 483.1999816894531, 84.80001068115234, 150.00003051757812, 320.0" smooth="false" stroke="#ff00a6" strokeType="INSIDE" />
    <Polyline fill="WHITE" points="117.20001220703125, 201.60000610351562, 317.6000061035156, 388.0000305175781, 280.8000183105469, 107.99999237060547, 117.20003509521484, 388.0000305175781" stroke="WHITE" strokeType="INSIDE" />
    <Polyline fill="#ff00a6" points="241.60000610351562, 163.1999969482422, 331.1999816894531, 436.8000183105469, 13.600000381469727, 249.60000610351562, 376.4000244140625, 277.6000061035156" stroke="#ff00a6" strokeType="INSIDE" />

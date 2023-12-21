@@ -47,8 +47,7 @@ public class DbService
 			PreparedStatement statement = connection.prepareStatement(query);
 			statement.setString(1, user.getLogin());
 			ResultSet resultSet = statement.executeQuery();
-			resultSet.next();
-			return HashService.validatePassword(user.getPassword(), resultSet.getString("password"));
+			return resultSet.next() && HashService.validatePassword(user.getPassword(), resultSet.getString("password"));
  		}
 		catch (SQLException | InvalidKeySpecException | NoSuchAlgorithmException e)
 		{

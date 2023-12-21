@@ -1,5 +1,6 @@
 package com.javafxapp;
 import com.javafxapp.database.DbService;
+import com.javafxapp.models.AlertMessage;
 import com.javafxapp.models.User;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 
 public class AuthApplication extends Application
 {
@@ -50,20 +52,28 @@ public class AuthApplication extends Application
 			{
 				try
 				{
-					if (!controller.getLoginField().getCharacters().toString().isEmpty())
+					AlertMessage alert = new AlertMessage();
+					
+					String login = controller.getLoginField().getText().trim();
+					String password = controller.getPasswordField().getText().trim();
+					DbService dbService = new DbService();
+					
+					if (login.isEmpty() || password.isEmpty())
 					{
-							primaryStage.close();
-							primaryStage.setScene(setSuccessfulAuthScene());
-							primaryStage.show();
+						alert.errorMessage("Все поля должны быть заполнены");
+					}
+					else if (!dbService.verifyUser(new User(login, password)))
+					{
+						alert.errorMessage("Неверный логин или пароль");
 					}
 					else
 					{
 						primaryStage.close();
-						primaryStage.setScene(setUnsuccessfulAuthScene());
+						primaryStage.setScene(setSuccessfulAuthScene());
 						primaryStage.show();
 					}
 				}
-				catch (IOException exception)
+				catch (IOException | SQLException exception)
 				{
 					throw new RuntimeException(exception);
 				}
@@ -76,7 +86,6 @@ public class AuthApplication extends Application
 			{
 				try
 				{
-					System.out.println("registration button in auth is working");
 					primaryStage.close();
 					primaryStage.setScene(setRegistrationScene(primaryStage));
 					primaryStage.show();
@@ -106,10 +115,21 @@ public class AuthApplication extends Application
 			{
 				try
 				{
-				System.out.println("registration button is working");
-				primaryStage.close();
-				primaryStage.setScene(setAuthScene(primaryStage));
-				primaryStage.show();
+					AlertMessage alert = new AlertMessage();
+					String login = registrationController.getLoginField().getText().trim();
+					String password = registrationController.getPasswordField().getText().trim();
+					DbService dbService = new DbService();
+					if (login.isEmpty() || password.isEmpty())
+					{
+						alert.errorMessage("Все поля должны быть заполнены");
+					}
+					else
+					{
+						dbService.addUserToDb(new User(login, password));
+						primaryStage.close();
+						primaryStage.setScene(setAuthScene(primaryStage));
+						primaryStage.show();
+					}
 				}
 				catch (Exception exception)
 				{
@@ -125,11 +145,5 @@ public class AuthApplication extends Application
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/javafxapp/SuccessfulAuth.fxml"));
 		Parent root = loader.load();
 		return new Scene(root, 500, 500);
-	}
-	public Scene setUnsuccessfulAuthScene() throws IOException
-	{
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/javafxapp/UnsuccessfulAuth.fxml"));
-		Parent root = loader.load();
-		return new Scene(root, 250, 250);
 	}
 }
