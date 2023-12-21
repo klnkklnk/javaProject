@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS user
+(
+    login varchar(32) PRIMARY KEY UNIQUE NOT NULL,
+    password varchar(50) NOT NULL,
+    registeredAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
