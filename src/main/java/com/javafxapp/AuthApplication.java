@@ -1,4 +1,5 @@
 package com.javafxapp;
+import com.javafxapp.database.DbConnector;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
